@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1co3xw5fdsnl"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_l41sr"]
+[ext_resource type="Texture2D" uid="uid://cnv51jb1yrtu4" path="res://Assets/button_rectangle_depth_gradient.png" id="2_jnjjo"]
+[ext_resource type="Texture2D" uid="uid://bl0k33c3mrv4p" path="res://Assets/button_rectangle_gradient.png" id="3_ayl4e"]
+[ext_resource type="Texture2D" uid="uid://cxxrci75b7rp1" path="res://Assets/button_rectangle_depth_flat.png" id="4_d6bus"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l41sr")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.487009, 0.487009, 0.487009, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 100
+text = "GAME"
+
+[node name="PlayButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("2_jnjjo")
+texture_pressed = ExtResource("3_ayl4e")
+texture_hover = ExtResource("4_d6bus")
+
+[node name="Label" type="Label" parent="VBoxContainer/PlayButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play
+"
+
+[node name="ExitButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("2_jnjjo")
+texture_pressed = ExtResource("3_ayl4e")
+texture_hover = ExtResource("4_d6bus")
+
+[node name="Label" type="Label" parent="VBoxContainer/ExitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit
+"
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
