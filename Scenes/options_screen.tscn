@@ -1,0 +1,174 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4aa38qop6f73"]
+
+[ext_resource type="PackedScene" uid="uid://opl65s0plgch" path="res://Scenes/volume_slider.tscn" id="1_7yfvw"]
+[ext_resource type="Script" path="res://Scripts/options_screen.gd" id="1_kr8k4"]
+[ext_resource type="Texture2D" uid="uid://bxvb8bm7y5jyp" path="res://Assets/UI/button/white/button_rectangle_border.png" id="1_vphlb"]
+[ext_resource type="Texture2D" uid="uid://bfxn81iq1y4x1" path="res://Assets/UI/button/white/button_rectangle_depth_gradient.png" id="3_asy8k"]
+[ext_resource type="Texture2D" uid="uid://bxlm35bysyyx6" path="res://Assets/UI/button/white/button_rectangle_gradient.png" id="4_brv32"]
+[ext_resource type="Texture2D" uid="uid://3m7l6kve11of" path="res://Assets/UI/button/white/button_rectangle_depth_flat.png" id="5_m5dyr"]
+
+[node name="OptionsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kr8k4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.254902, 0.254902, 0.254902, 0.466667)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -325.0
+offset_right = 230.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vphlb")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -303.0
+offset_right = 200.0
+offset_bottom = 303.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/MasterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "MASTER VOLUME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider" parent="NinePatchRect/VBoxContainer/MasterContainer" instance=ExtResource("1_7yfvw")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="MusicContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/MusicContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "MUSIC VOLUME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider" parent="NinePatchRect/VBoxContainer/MusicContainer" instance=ExtResource("1_7yfvw")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="SFXContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/SFXContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "SFX VOLUME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider" parent="NinePatchRect/VBoxContainer/SFXContainer" instance=ExtResource("1_7yfvw")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="BackButton" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("3_asy8k")
+texture_pressed = ExtResource("4_brv32")
+texture_hover = ExtResource("5_m5dyr")
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/BackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BACK
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryButton" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("3_asy8k")
+texture_pressed = ExtResource("4_brv32")
+texture_hover = ExtResource("5_m5dyr")
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/RetryButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "RETRY
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
