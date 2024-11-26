@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwbe3etyw1kgr"]
+
+[ext_resource type="PackedScene" uid="uid://sjyppauxwcuj" path="res://Scenes/player.tscn" id="1_rjdyc"]
+[ext_resource type="PackedScene" uid="uid://disp7unepkjef" path="res://Scenes/mob.tscn" id="2_j40ol"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_rjdyc")]
+position = Vector2(668, 150)
+
+[node name="mob" parent="." instance=ExtResource("2_j40ol")]
+position = Vector2(370, 294)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 4.0
+offset_top = -4.0
+offset_right = 2298.0
+offset_bottom = 1367.0
+color = Color(0.656472, 0.689557, 0.954473, 1)
+
+[node name="mob2" parent="." instance=ExtResource("2_j40ol")]
+position = Vector2(218.592, 134.342)
