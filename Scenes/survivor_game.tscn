@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwbe3etyw1kgr"]
+[gd_scene load_steps=5 format=3 uid="uid://dwbe3etyw1kgr"]
 
 [ext_resource type="PackedScene" uid="uid://sjyppauxwcuj" path="res://Scenes/player.tscn" id="1_rjdyc"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_vgual"]
 [ext_resource type="PackedScene" uid="uid://disp7unepkjef" path="res://Scenes/mob.tscn" id="2_j40ol"]
+[ext_resource type="PackedScene" uid="uid://s3qjianixct4" path="res://Scenes/exp_token.tscn" id="3_u0hq1"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_vgual")
 
 [node name="Player" parent="." instance=ExtResource("1_rjdyc")]
 position = Vector2(668, 150)
@@ -23,3 +26,9 @@ color = Color(0.656472, 0.689557, 0.954473, 1)
 
 [node name="mob2" parent="." instance=ExtResource("2_j40ol")]
 position = Vector2(218.592, 134.342)
+
+[node name="ExpToken" parent="." instance=ExtResource("3_u0hq1")]
+position = Vector2(1589, 225)
+
+[node name="ExpToken2" parent="." instance=ExtResource("3_u0hq1")]
+position = Vector2(2131, 1208)

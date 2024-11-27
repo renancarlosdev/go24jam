@@ -1,22 +1,80 @@
-[gd_scene load_steps=5 format=3 uid="uid://sjyppauxwcuj"]
+[gd_scene load_steps=9 format=3 uid="uid://sjyppauxwcuj"]
 
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_ox8j3"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ox8j3"]
 [ext_resource type="Texture2D" uid="uid://jivyt6mcl515" path="res://Assets/icon2.svg" id="2_1082t"]
 [ext_resource type="PackedScene" uid="uid://bwgvysov88yqw" path="res://Scenes/playeranimation.tscn" id="3_kagbi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ae5xx"]
-radius = 18.0
+radius = 31.0161
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eg7o3"]
+radius = 312.231
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqepn"]
+bg_color = Color(0.192157, 0.192157, 0.192157, 0.721569)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gamrk"]
+bg_color = Color(0.27451, 0.705882, 0.258824, 0.72549)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gk4nb"]
+radius = 55.2268
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ox8j3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ae5xx")
-
 [node name="test sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_1082t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ae5xx")
 
 [node name="playeranimation" parent="." instance=ExtResource("3_kagbi")]
 unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ExpArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExpArea"]
+shape = SubResource("CircleShape2D_eg7o3")
+debug_color = Color(0.236495, 0.637217, 0, 0.42)
+
+[node name="HPProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -146.0
+offset_top = -105.0
+offset_right = 150.0
+offset_bottom = -78.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tqepn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gamrk")
+value = 100.0
+show_percentage = false
+
+[node name="EXPProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -150.0
+offset_top = 72.0
+offset_right = 154.0
+offset_bottom = 83.0
+show_percentage = false
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_gk4nb")
+debug_color = Color(1, 0.0118072, 0.01923, 0.42)
+
+[connection signal="body_entered" from="ExpArea" to="." method="_on_area_2d_body_entered"]

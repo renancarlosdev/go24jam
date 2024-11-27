@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var damage = 5.0
 
 @onready var player = get_node("/root/Game/Player")
 
