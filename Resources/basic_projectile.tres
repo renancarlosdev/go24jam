@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="projectile_resource" load_steps=3 format=3 uid="uid://ba6u8v7208lwu"]
+
+[ext_resource type="Script" path="res://Scripts/projectile_resource.gd" id="1_28ebn"]
+[ext_resource type="Texture2D" uid="uid://jivyt6mcl515" path="res://Assets/icon2.svg" id="2_wdrxg"]
+
+[resource]
+script = ExtResource("1_28ebn")
+speed = 1000
+range = 1200
+texture = ExtResource("2_wdrxg")
+damage = 1

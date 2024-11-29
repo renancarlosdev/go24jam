@@ -32,3 +32,27 @@ position = Vector2(1589, 225)
 
 [node name="ExpToken2" parent="." instance=ExtResource("3_u0hq1")]
 position = Vector2(2131, 1208)
+
+[node name="Pillar" type="ColorRect" parent="."]
+offset_left = 576.0
+offset_top = 479.0
+offset_right = 728.0
+offset_bottom = 609.0
+
+[node name="Pillar3" type="ColorRect" parent="."]
+offset_left = 558.0
+offset_top = 1000.0
+offset_right = 710.0
+offset_bottom = 1130.0
+
+[node name="Pillar4" type="ColorRect" parent="."]
+offset_left = 1074.0
+offset_top = 30.0
+offset_right = 1226.0
+offset_bottom = 160.0
+
+[node name="Pillar2" type="ColorRect" parent="."]
+offset_left = 1762.0
+offset_top = 641.0
+offset_right = 1914.0
+offset_bottom = 771.0

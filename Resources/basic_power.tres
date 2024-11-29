@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="power_resource" load_steps=2 format=3 uid="uid://c8usk8adyejva"]
+
+[ext_resource type="Script" path="res://Scripts/power_resource.gd" id="1_kmby4"]
+
+[resource]
+script = ExtResource("1_kmby4")
+cooldown = 2.0
+p_count = 10

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnim6pmp0nbqt"]
+
+[ext_resource type="Script" path="res://Scripts/power.gd" id="1_hl6ue"]
+[ext_resource type="Resource" uid="uid://c8usk8adyejva" path="res://Resources/basic_power.tres" id="2_dfuox"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqotd"]
+radius = 360.0
+
+[node name="Power" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_hl6ue")
+res = ExtResource("2_dfuox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dqotd")
+
+[node name="Cooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+autostart = true
+
+[node name="Pivot" type="Marker2D" parent="."]
+
+[node name="ShootingPoint" type="Marker2D" parent="Pivot"]
+unique_name_in_owner = true
+position = Vector2(29, -10)
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_timer_timeout"]
