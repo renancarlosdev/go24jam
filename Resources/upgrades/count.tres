@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="upgrade_resource" load_steps=2 format=3 uid="uid://f8xuv8p2lgbs"]
+
+[ext_resource type="Script" path="res://Scripts/upgrade_resource.gd" id="1_cuugm"]
+
+[resource]
+script = ExtResource("1_cuugm")
+type = 2
+desc = "Projectile +1"
+boost = 1.0

@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-var exp = 0
+var exp = 95
 var lvl = 0
 var hp = 100.0
 
 signal killed
+signal leveled_up
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -34,3 +35,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_exp_obtained(points):
 	exp += points
 	%EXPProgressBar.value = exp
+	
+	if exp >= 100:
+		leveled_up.emit()

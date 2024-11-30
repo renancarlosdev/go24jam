@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="upgrade_resource" load_steps=2 format=3 uid="uid://duwv6qs2plqqp"]
+
+[ext_resource type="Script" path="res://Scripts/upgrade_resource.gd" id="1_kawcf"]
+
+[resource]
+script = ExtResource("1_kawcf")
+type = 3
+desc = "Speed +100"
+boost = 100.0

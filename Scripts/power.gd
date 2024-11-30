@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var res: power_resource
+@export var res_projectile: projectile_resource
 
 func _ready() -> void:
 	%Cooldown.wait_time = res.cooldown
@@ -18,7 +19,7 @@ func _shoot():
 	
 	var new_projectile = PROJECTILE.instantiate()
 	
-	new_projectile.res = load("res://Resources/basic_projectile.tres")
+	new_projectile.res = res_projectile#load("res://Resources/basic_projectile.tres")
 	
 	new_projectile.global_position = %ShootingPoint.global_position
 	new_projectile.global_rotation = %ShootingPoint.global_rotation
@@ -29,4 +30,3 @@ func _on_timer_timeout() -> void:
 	for i in res.p_count:
 		await get_tree().create_timer(0.05).timeout 
 		_shoot()
-		

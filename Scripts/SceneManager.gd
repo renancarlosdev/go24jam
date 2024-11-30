@@ -2,6 +2,8 @@ extends Node
 
 var scene_instance
 
+enum UPGRADE_TYPE {COOLDOWN,DAMAGE,COUNT,SPEED}#ADD RANGE
+
 const FADE_TRANSITION = preload("res://Scenes/fade_transition.tscn")
 
 func _ready() -> void:

@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_kmby4")
 cooldown = 2.0
-p_count = 10
+p_count = 1

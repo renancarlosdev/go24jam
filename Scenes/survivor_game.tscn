@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwbe3etyw1kgr"]
+[gd_scene load_steps=6 format=3 uid="uid://dwbe3etyw1kgr"]
 
 [ext_resource type="PackedScene" uid="uid://sjyppauxwcuj" path="res://Scenes/player.tscn" id="1_rjdyc"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_vgual"]
-[ext_resource type="PackedScene" uid="uid://disp7unepkjef" path="res://Scenes/mob.tscn" id="2_j40ol"]
 [ext_resource type="PackedScene" uid="uid://s3qjianixct4" path="res://Scenes/exp_token.tscn" id="3_u0hq1"]
+[ext_resource type="PackedScene" uid="uid://px25xdtql4u5" path="res://Scenes/lvl_up.tscn" id="3_vnl2t"]
+
+[sub_resource type="Curve2D" id="Curve2D_u1628"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1287, -696, 0, 0, 0, 0, 1322, -705, 0, 0, 0, 0, 1331, 729, 0, 0, 0, 0, -1297, 717, 0, 0, 0, 0, -1287, -696)
+}
+point_count = 5
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_vgual")
@@ -11,21 +17,13 @@ script = ExtResource("1_vgual")
 [node name="Player" parent="." instance=ExtResource("1_rjdyc")]
 position = Vector2(668, 150)
 
-[node name="mob" parent="." instance=ExtResource("2_j40ol")]
-position = Vector2(370, 294)
+[node name="Path2D" type="Path2D" parent="Player"]
+curve = SubResource("Curve2D_u1628")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -30
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = 4.0
-offset_top = -4.0
-offset_right = 2298.0
-offset_bottom = 1367.0
-color = Color(0.656472, 0.689557, 0.954473, 1)
-
-[node name="mob2" parent="." instance=ExtResource("2_j40ol")]
-position = Vector2(218.592, 134.342)
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-1287, -696)
+rotation = -0.00344958
 
 [node name="ExpToken" parent="." instance=ExtResource("3_u0hq1")]
 position = Vector2(1589, 225)
@@ -38,6 +36,7 @@ offset_left = 576.0
 offset_top = 479.0
 offset_right = 728.0
 offset_bottom = 609.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Pillar3" type="ColorRect" parent="."]
 offset_left = 558.0
@@ -50,9 +49,32 @@ offset_left = 1074.0
 offset_top = 30.0
 offset_right = 1226.0
 offset_bottom = 160.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Pillar2" type="ColorRect" parent="."]
 offset_left = 1762.0
 offset_top = 641.0
 offset_right = 1914.0
 offset_bottom = 771.0
+
+[node name="MobTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 4.0
+offset_top = -4.0
+offset_right = 2298.0
+offset_bottom = 1367.0
+color = Color(0.656472, 0.689557, 0.954473, 1)
+
+[node name="Screens" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="LvlUp" parent="Screens" instance=ExtResource("3_vnl2t")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

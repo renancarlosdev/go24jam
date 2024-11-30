@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="upgrade_resource" load_steps=2 format=3 uid="uid://c7n75vc7tt7wl"]
+
+[ext_resource type="Script" path="res://Scripts/upgrade_resource.gd" id="1_36e2g"]
+
+[resource]
+script = ExtResource("1_36e2g")
+type = 1
+desc = "Damage +1"
+boost = 1.0

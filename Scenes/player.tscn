@@ -29,6 +29,7 @@ corner_radius_bottom_left = 8
 radius = 55.2268
 
 [node name="Player" type="CharacterBody2D"]
+platform_floor_layers = 0
 script = ExtResource("1_ox8j3")
 
 [node name="test sprite" type="Sprite2D" parent="."]
