@@ -7,15 +7,18 @@ var hp = 100.0
 signal killed
 signal leveled_up
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * 600
 	move_and_slide()
 	
 	if velocity.length() > 0.0:
-		%playeranimation.play_walk_animation()
+		$AnimatedSprite2D.play_walking_animation()
 	else:
-		%playeranimation.play_idle_animation()
+		$AnimatedSprite2D.play_idle_animation()
 		
 	var overlaping_mobs = $%HurtBox.get_overlapping_bodies()
 	if overlaping_mobs.size() > 0: 
@@ -24,6 +27,7 @@ func _physics_process(delta: float) -> void:
 		%HPProgressBar.value= hp
 		
 		if hp < 0.0:
+			$AnimatedSprite2D.play_killed_animation()
 			killed.emit()
 	
 	
