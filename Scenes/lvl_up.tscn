@@ -90,6 +90,7 @@ vertical_alignment = 1
 autowrap_mode = 1
 
 [node name="Button" type="TextureButton" parent="HBoxContainer/CenterContainer/NinePatchRect"]
+layout_mode = 0
 offset_left = 66.0
 offset_top = 512.0
 offset_right = 258.0
@@ -174,6 +175,7 @@ vertical_alignment = 1
 autowrap_mode = 1
 
 [node name="Button" type="TextureButton" parent="HBoxContainer/CenterContainer2/NinePatchRect"]
+layout_mode = 0
 offset_left = 66.0
 offset_top = 512.0
 offset_right = 258.0
@@ -258,6 +260,7 @@ vertical_alignment = 1
 autowrap_mode = 1
 
 [node name="Button" type="TextureButton" parent="HBoxContainer/CenterContainer3/NinePatchRect"]
+layout_mode = 0
 offset_left = 66.0
 offset_top = 512.0
 offset_right = 258.0

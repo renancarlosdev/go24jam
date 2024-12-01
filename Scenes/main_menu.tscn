@@ -1,10 +1,164 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1co3xw5fdsnl"]
+[gd_scene load_steps=29 format=3 uid="uid://b1co3xw5fdsnl"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_l41sr"]
 [ext_resource type="Texture2D" uid="uid://bfxn81iq1y4x1" path="res://Assets/UI/button/white/button_rectangle_depth_gradient.png" id="2_km56l"]
+[ext_resource type="Texture2D" uid="uid://bkhn86qcxaba3" path="res://Assets/skeleton-36x48.png" id="2_yel3r"]
 [ext_resource type="Texture2D" uid="uid://bxlm35bysyyx6" path="res://Assets/UI/button/white/button_rectangle_gradient.png" id="3_gbdom"]
 [ext_resource type="Texture2D" uid="uid://3m7l6kve11of" path="res://Assets/UI/button/white/button_rectangle_depth_flat.png" id="4_c1j24"]
 [ext_resource type="PackedScene" uid="uid://c4aa38qop6f73" path="res://Scenes/options_screen.tscn" id="5_cd3ql"]
+[ext_resource type="Theme" uid="uid://cluu1jwp5aprt" path="res://Resources/UI/title.tres" id="6_gds5l"]
+[ext_resource type="AudioStream" uid="uid://df5w1e4g71hq6" path="res://Assets/Sounds/song/Game Over.ogg" id="8_lhijm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6khc"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(36, 96, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7pa8"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(72, 96, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojdjc"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(108, 96, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny16f"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(144, 96, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kofs5"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(0, 144, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipcfb"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(36, 144, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh000"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(72, 144, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxhml"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(108, 144, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d31ii"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(144, 144, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aiqwl"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(0, 0, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb6oj"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(36, 0, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qca4l"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(72, 0, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoiuq"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(108, 0, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op5ip"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(144, 0, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycgf2"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(0, 48, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sima"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(36, 48, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p42n4"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(72, 48, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bufsd"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(108, 48, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gx6h"]
+atlas = ExtResource("2_yel3r")
+region = Rect2(144, 48, 36, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fb8n3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6khc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7pa8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojdjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny16f")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kofs5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipcfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh000")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxhml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d31ii")
+}],
+"loop": false,
+"name": &"killed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aiqwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb6oj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qca4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoiuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_op5ip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycgf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sima")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p42n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bufsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gx6h")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 10.0
+}]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -22,24 +176,43 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.487009, 0.487009, 0.487009, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 84.0
+offset_top = 96.0
+offset_right = 1653.0
+offset_bottom = 233.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("6_gds5l")
+theme_override_font_sizes/font_size = 70
+text = "graveyard ascent"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(457, 424)
+scale = Vector2(7.306, 7.306)
+sprite_frames = SubResource("SpriteFrames_fb8n3")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -81.0
+offset_right = 283.0
+offset_bottom = 187.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 100
-text = "GAME"
-
 [node name="PlayButton" type="TextureButton" parent="VBoxContainer"]
+self_modulate = Color(0.260506, 0.260506, 0.260506, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -60,11 +233,14 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme = ExtResource("6_gds5l")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
 text = "Play
 "
 
 [node name="OptionsButton" type="TextureButton" parent="VBoxContainer"]
+self_modulate = Color(0.258824, 0.258824, 0.258824, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -85,10 +261,13 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme = ExtResource("6_gds5l")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
 text = "Options"
 
 [node name="ExitButton" type="TextureButton" parent="VBoxContainer"]
+self_modulate = Color(0.258824, 0.258824, 0.258824, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -109,13 +288,20 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme = ExtResource("6_gds5l")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
 text = "Exit
 "
 
 [node name="OptionsScreen" parent="." instance=ExtResource("5_cd3ql")]
 visible = false
 layout_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_lhijm")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

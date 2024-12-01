@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://disp7unepkjef"]
+[gd_scene load_steps=16 format=3 uid="uid://disp7unepkjef"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_w68u0"]
 [ext_resource type="Texture2D" uid="uid://dcs7to64blpxh" path="res://Assets/ghost-green-25x35.png" id="2_e7bg1"]
+[ext_resource type="AudioStream" uid="uid://ctghpvepjg5g0" path="res://Assets/Sounds/booo.ogg" id="3_8u1jb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ilt7x"]
 radius = 60.0083
@@ -99,3 +100,7 @@ position = Vector2(-4, 2.38419e-07)
 scale = Vector2(3.59, 3.59)
 sprite_frames = SubResource("SpriteFrames_qq466")
 frame_progress = 0.754565
+
+[node name="BooSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8u1jb")
+bus = &"SFX"

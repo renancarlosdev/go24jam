@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="upgrade_resource" load_steps=2 format=3 uid="uid://c7j364ej54wyc"]
+
+[ext_resource type="Script" path="res://Scripts/upgrade_resource.gd" id="1_esdwp"]
+
+[resource]
+script = ExtResource("1_esdwp")
+type = 6
+desc = "Able to hear"
+boost = 0.0

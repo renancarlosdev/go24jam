@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
-var exp = 95
+var exp = 50
 var lvl = 0
 var hp = 100.0
+
+var dead = false
 
 signal killed
 signal leveled_up
@@ -11,14 +13,22 @@ signal leveled_up
 
 
 func _physics_process(delta: float) -> void:
+	if dead:
+		return
+	
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * 600
 	move_and_slide()
 	
+	if direction.x > 0:
+		$AnimatedSprite2D.flip_h = false
+	elif direction.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	
 	if velocity.length() > 0.0:
-		$AnimatedSprite2D.play_walking_animation()
+		$AnimatedSprite2D.play("walking")#.play_walking_animation()
 	else:
-		$AnimatedSprite2D.play_idle_animation()
+		$AnimatedSprite2D.play("idle")#.play_idle_animation()
 		
 	var overlaping_mobs = $%HurtBox.get_overlapping_bodies()
 	if overlaping_mobs.size() > 0: 
@@ -27,7 +37,9 @@ func _physics_process(delta: float) -> void:
 		%HPProgressBar.value= hp
 		
 		if hp < 0.0:
-			$AnimatedSprite2D.play_killed_animation()
+			dead = true
+			$AnimatedSprite2D.play("killed")
+			await $AnimatedSprite2D.animation_finished
 			killed.emit()
 	
 	
@@ -41,4 +53,5 @@ func _on_exp_obtained(points):
 	%EXPProgressBar.value = exp
 	
 	if exp >= 100:
+		exp=0
 		leveled_up.emit()

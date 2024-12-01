@@ -2,14 +2,20 @@ extends CharacterBody2D
 
 @export var damage = 5.0
 
-@export var health = 10
+@export var health = 5
 
 @onready var player = get_node("/root/Game/Player")
+
+func _ready() -> void:
+	if(SceneManager.hearing):
+		$BooSound.play()
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * 300
 	move_and_slide()
+	
+
 
 
 func take_damage(damage):

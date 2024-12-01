@@ -2,7 +2,7 @@ extends StaticBody2D
 
 var player
 var move = false
-@export var points = 10
+@export var points = 30
 
 signal exp_obtained
 

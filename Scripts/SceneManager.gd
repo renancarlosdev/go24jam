@@ -2,7 +2,12 @@ extends Node
 
 var scene_instance
 
-enum UPGRADE_TYPE {COOLDOWN,DAMAGE,COUNT,SPEED}#ADD RANGE
+var hearing = false
+var vision = false
+
+var player_lvl = 1
+
+enum UPGRADE_TYPE {COOLDOWN,DAMAGE,COUNT,SPEED,RANGE,VISION,HEARING}#ADD RANGE
 
 const FADE_TRANSITION = preload("res://Scenes/fade_transition.tscn")
 
@@ -18,9 +23,15 @@ func unload_scene():
 	
 func load_scene(scene_name: String):
 	
-	#Play fade animation from old scene
+	#Add canvas to bypass camera2D movement
+	var canvas = CanvasLayer.new()
+	
+	#Play fade animation from old scene	
 	var fade_screen_instance = FADE_TRANSITION.instantiate()
-	get_tree().root.add_child(fade_screen_instance)	
+	
+	canvas.add_child(fade_screen_instance)
+	
+	get_tree().root.add_child(canvas)	
 	var AnimationP = fade_screen_instance.get_node("AnimationPlayer")
 	AnimationP.play("fade_to_black")
 	await AnimationP.animation_finished
@@ -38,6 +49,6 @@ func load_scene(scene_name: String):
 	#await AnimationP.animation_finished
 	AnimationP.play("fade_from_black")
 	await AnimationP.animation_finished
-	fade_screen_instance.queue_free()
+	canvas.queue_free()#fade_screen_instance.queue_free()
 	
 	
